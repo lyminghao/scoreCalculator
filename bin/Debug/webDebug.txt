@@ -1,0 +1,241 @@
+网络抓取-测试输出
+=================
+WebBroswer 开启成功。
+请求url_bd成功。网页内容：
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <script src="./js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <title>用户绑定</title>
+    <link href="images/all.css" rel="stylesheet" type="text/css" />
+    <script src="./js/jquery.js" type="text/javascript"></script>
+    <script src="./js/alert.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="frmAuthuser">
+        <div class="dl1">
+            <div class="dl2">
+                <img src="images/dl-1.png" width="640" height="74" />
+            </div>
+            <div class="dl3">
+                <div class="xzsf" style="display: none">
+                    <div class="dlbk1">
+                    </div>
+                    <select name='xzsf1' id="selProvince" class="text_login2" onchange="ChangeCollege();">
+                        <option value="2384">吉林省</option>
+                    </select>
+                    <div class="dlbk2">
+                    </div>
+                </div>
+                <div class="xzxx" style="display: none">
+                    <div class="dlbk1">
+                    </div>
+                    <select name='selCollege' id="selCollege" class="text_login2">
+                        <option value="1">东北师范大学</option>
+                    </select>
+                    <div class="dlbk2">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="dl5">
+                <div class="dlbk3">
+                </div>
+                <input type="hidden" id="fzusertype" name="fzusertype" value="2" />
+
+                <input type="text" value="" class="text_login" id="fzuser" name="fzuser" placeholder="请输入账号" /><div style="width: 1px; float: left; right: -5px; padding-top: 8PX;">@nenu.edu.cn</div>
+                <div class="dlbk4">
+                </div>
+                <input type="password" value="" class="text_login11" id="fzpwd" name="fzpwd" placeholder="请输入密码" />
+                <input type="hidden" id="fzuserid" name="fzuserid" value="a9ddd922-9656-4aa6-b3d2-4b1089839191" />
+                <input type="hidden" id="fzwei" name="fzwei" value="" />
+            </div>
+            <div class="dl6">
+                <a href="javascript:void(0);" onclick="saveAuth();">
+                    <img src="images/dl-12.gif" width="440" height="81" /></a>
+            </div>
+            <div class="dl3" style="color: red; font-size: 16px">
+                注：微教学平台,已开通统一认证服务，用户名和密码与校内邮箱相同
+
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+        //保存
+        function saveAuth() {
+            $.post("authuser.aspx?ac=bind", $("#frmAuthuser").serialize(), function (data, textSatus) {
+                if (data.indexOf("[SUCCESS]") >= 0) {
+                    alert(data.replace("[ERROR]", ""));
+                    WeixinJSBridge.call('closeWindow');
+                    // window.setTimeout("Jump()", 3000);
+
+                } else {
+                    alert(data.replace("[ERROR]", ""));
+                }
+            }).error(function (data) { alert(data); });
+
+
+        }
+
+        function Jump() {
+            window.location.href = "../index.aspx?t=" + $("#fzuserid").val();
+        }
+
+        function ChangeCollege() {
+            $.post("authuser.aspx?ac=sel&pid=" + $("#selProvince").val() + "&t=" + $("#fzuserid").val(), null, function (data, textSatus) {
+                $("#selCollege").empty();
+                $("#selCollege").append(data);
+            });
+        }
+
+        function SelectUserType(_type) {
+            $("#fzusertype").val(_type);
+            if (_type == 2) {
+                $("#selxs").attr("class", "sxn1");
+                $("#seljs").attr("class", "xxn");
+                alert(data.replace("[ERROR]", "教师微信服务测试中！"));
+            }
+            else {
+                $("#selxs").attr("class", "sxn");
+                $("#seljs").attr("class", "xxn1");
+            }
+        }
+    </script>
+</body>
+</html>
+
+Cookie:
+qzauth=s/tDmKnHQ8/yB6kWtoL59P1EW0oP/bs5TEO110DEN4Kpg/JDkk/KCQwkyD+9xkELlg+crDv5/qfv41xnYl/rig==; safedog-flow-item=A557582F6DBA4ED327FD724EFC09FBDE; BNES_safedog-flow-item=EPawavO84CEhs9C5Gl+HqROLpIbunV4iiRwbixtG8hAysQaaLSLm3Ljc4u/QX5OADBoNov91gL7P2jMG1LzryK8ngo55WrIBdR9j2LIknKJOpDPEei2KwhPBtyZlBo34
+Ajax请求完成。网页内容：
+
+<BODY style="ZOOM: 1"><DIV id=windowcenter class=window style="DISPLAY: block" jQuery19107193585574462352="6">
+<DIV id=title class=title>东师微教学<SPAN id=alertclose class=close jQuery19107193585574462352="3"></SPAN></DIV>
+<DIV class=content>
+<DIV id=txt>[SUCCESS]绑定成功！</DIV><INPUT id=windowclosebutton class=txtbtn type=button value=确定 name=确定 jQuery19107193585574462352="1"> </DIV></DIV>
+<FORM id=frmAuthuser>
+<DIV class=dl1>
+<DIV class=dl2><IMG src="images/dl-1.png" width=640 height=74> </DIV>
+<DIV class=dl3>
+<DIV class=xzsf style="DISPLAY: none">
+<DIV class=dlbk1></DIV><SELECT onchange=ChangeCollege(); id=selProvince class=text_login2 name=xzsf1> <OPTION selected value=2384>吉林省</OPTION></SELECT> 
+<DIV class=dlbk2></DIV></DIV>
+<DIV class=xzxx style="DISPLAY: none">
+<DIV class=dlbk1></DIV><SELECT id=selCollege class=text_login2 name=selCollege> <OPTION selected value=1>东北师范大学</OPTION></SELECT> 
+<DIV class=dlbk2></DIV></DIV></DIV>
+<DIV class=dl5>
+<DIV class=dlbk3></DIV><INPUT id=fzusertype type=hidden value=2 name=fzusertype> <INPUT id=fzuser class=text_login value=liumh598 name=fzuser placeholder="请输入账号">
+<DIV style="WIDTH: 1px; RIGHT: -5px; FLOAT: left; PADDING-TOP: 8px">@nenu.edu.cn</DIV>
+<DIV class=dlbk4></DIV><INPUT id=fzpwd class=text_login11 type=password value="" name=fzpwd placeholder="请输入密码"> <INPUT id=fzuserid type=hidden value=a9ddd922-9656-4aa6-b3d2-4b1089839191 name=fzuserid> <INPUT id=fzwei type=hidden name=fzwei> </DIV>
+<DIV class=dl6><A onclick=saveAuth(); href="javascript:void(0);"><IMG src="images/dl-12.gif" width=440 height=81></A> </DIV>
+<DIV class=dl3 style="FONT-SIZE: 16px; COLOR: red">注：微教学平台,已开通统一认证服务，用户名和密码与校内邮箱相同 </DIV></DIV></FORM>
+<SCRIPT type=text/javascript>
+        //保存
+        function saveAuth() {
+            $.post("authuser.aspx?ac=bind", $("#frmAuthuser").serialize(), function (data, textSatus) {
+                if (data.indexOf("[SUCCESS]") >= 0) {
+                    alert(data.replace("[ERROR]", ""));
+                    WeixinJSBridge.call('closeWindow');
+                    // window.setTimeout("Jump()", 3000);
+
+                } else {
+                    alert(data.replace("[ERROR]", ""));
+                }
+            }).error(function (data) { alert(data); });
+
+
+        }
+
+        function Jump() {
+            window.location.href = "../index.aspx?t=" + $("#fzuserid").val();
+        }
+
+        function ChangeCollege() {
+            $.post("authuser.aspx?ac=sel&pid=" + $("#selProvince").val() + "&t=" + $("#fzuserid").val(), null, function (data, textSatus) {
+                $("#selCollege").empty();
+                $("#selCollege").append(data);
+            });
+        }
+
+        function SelectUserType(_type) {
+            $("#fzusertype").val(_type);
+            if (_type == 2) {
+                $("#selxs").attr("class", "sxn1");
+                $("#seljs").attr("class", "xxn");
+                alert(data.replace("[ERROR]", "教师微信服务测试中！"));
+            }
+            else {
+                $("#selxs").attr("class", "sxn");
+                $("#seljs").attr("class", "xxn1");
+            }
+        }
+    </SCRIPT>
+</BODY>
+Cookie:
+qzauth=s/tDmKnHQ8/yB6kWtoL59JM3GrKBTUqBEPU1L16tpyWkqI5rJVCKSDJ19qaYC+jaZNH9RSJF9cANCYdcBzNbNg==; safedog-flow-item=A557582F6DBA4ED327FD724EFC09FBDE; BNES_safedog-flow-item=EPawavO84CEhs9C5Gl+HqROLpIbunV4iiRwbixtG8hAysQaaLSLm3Ljc4u/QX5OADBoNov91gL7P2jMG1LzryK8ngo55WrIBdR9j2LIknKJOpDPEei2KwhPBtyZlBo34
+请求url_cx完成。网页内容：
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>成绩查询</title>
+    <link href="images/all.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+    <div class="kscxjg1">
+        <div class="kscxjg2">
+            <p>成绩查询&nbsp;&nbsp;</p>
+            <a href="scoresearch.aspx?t=a9ddd922-9656-4aa6-b3d2-4b1089839191">
+                <img src="images/cjcx-3.gif" width="164" height="54" /></a></div>
+        <div class="xian">
+        </div>
+        <div class="kscxjg3">
+            <div class="lbe2">
+                <table width="100%" id="ddddd" border="0" cellSpacing="1" cellPadding="0" >
+                    <tr>  <td bgColor="#4fb0cb" width="25%">课程号</td>
+                        <td bgColor="#4fb0cb" width="25%">科目</td>
+                        <td bgColor="#4fb0cb" width="15%">学分</td>
+                        <td bgColor="#4fb0cb" width="15%">成绩</td>
+                          <td bgColor="#4fb0cb" width="20%">绩点</td>
+                    </tr>
+                   
+                </table>
+                
+            </div>
+            
+        </div>
+        <!--cjcxjg3-->
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        var dd =  [{'jd':13.8,'kcbh':'JXY208','zcj':96,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'程序设计基础（C语言）','xf':3},{'jd':12.8,'kcbh':'TXK107','zcj':82,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学物理','xf':4},{'jd':10,'kcbh':'FOR001','zcj':90,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学英语1','xf':2.5},{'jd':1,'kcbh':'FOR001-T','zcj':70,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学英语1听力','xf':0.5},{'jd':6,'kcbh':'CHY200','zcj':0,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'高等数学','xf':6},{'jd':16.2,'kcbh':'STY005','zcj':77,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'高等数学A-1','xf':6},{'jd':9,'kcbh':'JXY201','zcj':95,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'计算机导论','xf':2},{'jd':2.8,'kcbh':'PHE006','zcj':78,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'军事训练','xf':1},{'jd':8.4,'kcbh':'INT008','zcj':78,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'思想道德与法律基础','xf':3},{'jd':2.7,'kcbh':'PHE001','zcj':77,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'体育1','xf':1},{'jd':8.6,'kcbh':'JXY224','zcj':93,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'网页程序设计实践','xf':2},{'jd':11.4,'kcbh':'JXY202','zcj':88,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'线性代数','xf':3},{'jd':8.4,'kcbh':'JXY225','zcj':92,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'Web程序设计实践','xf':2},{'jd':6.75,'kcbh':'FOR002','zcj':77,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'大学英语2','xf':2.5},{'jd':1.85,'kcbh':'FOR002-T','zcj':87,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'大学英语2听力','xf':0.5},{'jd':10,'kcbh':'TXK093','zcj':75,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'高等数学A-2','xf':4},{'jd':12,'kcbh':'JXY410','zcj':100,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'计算机新技术讲座','xf':2},{'jd':8.8,'kcbh':'TXK162','zcj':94,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'经济学通识','xf':2},{'jd':3.5,'kcbh':'PHE005','zcj':85,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'军事理论','xf':1},{'jd':11.4,'kcbh':'JXY203','zcj':88,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'离散数学1','xf':3},{'jd':14.4,'kcbh':'JXY209','zcj':98,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'面向对象程序设计（C++）','xf':3},{'jd':7.5,'kcbh':'JXY204','zcj':75,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'模拟电子技术','xf':3},{'jd':8.4,'kcbh':'TXK115','zcj':92,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'人体构造与健康','xf':2},{'jd':9.8,'kcbh':'JXY214','zcj':99,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'算法与程序设计实践1','xf':2},{'jd':3.1,'kcbh':'PHE002','zcj':81,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'体育2','xf':1},{'jd':7.8,'kcbh':'LIT001','zcj':89,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'写作','xf':2},{'jd':7,'kcbh':'INT010','zcj':85,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'中国近现代史纲要','xf':2},{'jd':10.32,'kcbh':'JXY417','zcj':93,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'TCP/IP协议原理','xf':2},{'jd':7,'kcbh':'FOR003','zcj':78,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'大学英语3','xf':2.5},{'jd':12,'kcbh':'JXY207','zcj':90,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'概率论与数理统计1','xf':3},{'jd':8.4,'kcbh':'JXY409','zcj':85,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'离散数学2','xf':2},{'jd':12,'kcbh':'INT011','zcj':90,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'马克思主义基本原理','xf':3},{'jd':10,'kcbh':'TXK186','zcj':100,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'美术鉴赏','xf':2},{'jd':8.8,'kcbh':'JXY218','zcj':94,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'面向对象程序设计(java)','xf':2},{'jd':16.8,'kcbh':'JXY205','zcj':92,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'数据结构','xf':4},{'jd':13.2,'kcbh':'JXY206','zcj':94,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'数字电路与数字逻辑','xf':3},{'jd':8.6,'kcbh':'JXY215','zcj':93,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'算法与程序设计实践2','xf':2},{'jd':3,'kcbh':'PHE003','zcj':80,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'体育3','xf':1},{'jd':8.4,'kcbh':'TXK052','zcj':92,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'西方哲学','xf':2},{'jd':10.8,'kcbh':'JXY241','zcj':86,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'Android应用开发技术','xf':3},{'jd':8,'kcbh':'JXY228','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'Windows程序设计','xf':2},{'jd':12.6,'kcbh':'JXY212','zcj':92,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'操作系统','xf':3},{'jd':10,'kcbh':'FOR004','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'大学英语4','xf':2.5},{'jd':9.6,'kcbh':'JXY210','zcj':82,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'计算机组成与结构','xf':3},{'jd':13.2,'kcbh':'INT015','zcj':83,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'毛泽东思想和中国特色社会主义理论体系概论','xf':4},{'jd':9.6,'kcbh':'JXY404','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'嵌入式系统引论','xf':2},{'jd':10.08,'kcbh':'JXY406','zcj':92,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'算法分析与设计','xf':2},{'jd':3.2,'kcbh':'PHE004','zcj':82,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'体育4','xf':1},{'jd':9.8,'kcbh':'TXK198','zcj':99,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'西方美术欣赏','xf':2},{'jd':9,'kcbh':'JXY242','zcj':95,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'项目实践','xf':2},{'jd':10.32,'kcbh':'TXK153','zcj':93,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'心理学与生活','xf':2},{'jd':8.6,'kcbh':'JXY216','zcj':93,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'专业英语','xf':2},{'jd':9.84,'kcbh':'JXY412','zcj':91,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'组合数学','xf':2},{'jd':6.48,'kcbh':'JXY421','zcj':77,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'C＃.NET面向对象程序设计','xf':2},{'jd':17.64,'kcbh':'JXY401','zcj':99,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'编译原理','xf':3},{'jd':1.6,'kcbh':'FOR003-T','zcj':82,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'大学英语3听力','xf':0.5},{'jd':1.6,'kcbh':'FOR004-T','zcj':82,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'大学英语4听力','xf':0.5},{'jd':13.8,'kcbh':'JXY213','zcj':96,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'汇编语言程序设计','xf':3},{'jd':8.4,'kcbh':'JXY418','zcj':85,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'软件工程','xf':2},{'jd':13.8,'kcbh':'JXY211','zcj':96,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'数据库系统','xf':3},{'jd':6.2,'kcbh':'JXY219','zcj':81,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'Linux操作系统','xf':2},{'jd':14.04,'kcbh':'JXY402','zcj':89,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算机体系结构','xf':3},{'jd':8.64,'kcbh':'JXY405','zcj':86,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算机网络','xf':2},{'jd':11.28,'kcbh':'JXY407','zcj':97,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算理论','xf':2},{'jd':9,'kcbh':'JXY243','zcj':95,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'数据仓库与数据挖掘','xf':2},{'jd':9,'kcbh':'JXY246','zcj':95,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'数字图像处理','xf':2},{'jd':11.88,'kcbh':'JXY403','zcj':83,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'微机原理与应用','xf':3},{'jd':22.5,'kcbh':'JXY249','zcj':95,'xm':'刘明昊','xqmc':'2016年秋季学期','kcmc':'专业实习','xf':5}]
+;
+        try { 
+            var htmljs="";
+            if (dd.length > 0)
+            {
+                for (var i = 0; i < dd.length; i++) {
+                    htmljs+="  <tr class=\"w6\"><td bgColor='#80cde3'>" + dd[i].kcbh+"</td><td bgColor='#80cde3'>" + dd[i].kcmc+"</td><td bgColor='#80cde3'>" + dd[i].xf+"</td><td bgColor='#80cde3'>" + dd[i].zcj+"</td><td bgColor='#80cde3'>" + dd[i].jd+"</td></tr>";
+                }
+           
+            }    
+            $('#ddddd').append(htmljs);
+        } catch (e) {
+    
+        }
+    });
+
+</script>
+Cookie:
+qzauth=s/tDmKnHQ8/yB6kWtoL59JM3GrKBTUqBEPU1L16tpyWkqI5rJVCKSDJ19qaYC+jaZNH9RSJF9cANCYdcBzNbNg==; safedog-flow-item=A557582F6DBA4ED327FD724EFC09FBDE; BNES_safedog-flow-item=EPawavO84CEhs9C5Gl+HqROLpIbunV4iiRwbixtG8hAysQaaLSLm3Ljc4u/QX5OADBoNov91gL7P2jMG1LzryK8ngo55WrIBdR9j2LIknKJOpDPEei2KwhPBtyZlBo34
+网页请求完成，开始解析Json。
+[{'jd':13.8,'kcbh':'JXY208','zcj':96,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'程序设计基础（C语言）','xf':3},{'jd':12.8,'kcbh':'TXK107','zcj':82,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学物理','xf':4},{'jd':10,'kcbh':'FOR001','zcj':90,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学英语1','xf':2.5},{'jd':1,'kcbh':'FOR001-T','zcj':70,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'大学英语1听力','xf':0.5},{'jd':6,'kcbh':'CHY200','zcj':0,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'高等数学','xf':6},{'jd':16.2,'kcbh':'STY005','zcj':77,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'高等数学A-1','xf':6},{'jd':9,'kcbh':'JXY201','zcj':95,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'计算机导论','xf':2},{'jd':2.8,'kcbh':'PHE006','zcj':78,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'军事训练','xf':1},{'jd':8.4,'kcbh':'INT008','zcj':78,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'思想道德与法律基础','xf':3},{'jd':2.7,'kcbh':'PHE001','zcj':77,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'体育1','xf':1},{'jd':8.6,'kcbh':'JXY224','zcj':93,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'网页程序设计实践','xf':2},{'jd':11.4,'kcbh':'JXY202','zcj':88,'xm':'刘明昊','xqmc':'2013年秋季学期','kcmc':'线性代数','xf':3},{'jd':8.4,'kcbh':'JXY225','zcj':92,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'Web程序设计实践','xf':2},{'jd':6.75,'kcbh':'FOR002','zcj':77,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'大学英语2','xf':2.5},{'jd':1.85,'kcbh':'FOR002-T','zcj':87,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'大学英语2听力','xf':0.5},{'jd':10,'kcbh':'TXK093','zcj':75,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'高等数学A-2','xf':4},{'jd':12,'kcbh':'JXY410','zcj':100,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'计算机新技术讲座','xf':2},{'jd':8.8,'kcbh':'TXK162','zcj':94,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'经济学通识','xf':2},{'jd':3.5,'kcbh':'PHE005','zcj':85,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'军事理论','xf':1},{'jd':11.4,'kcbh':'JXY203','zcj':88,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'离散数学1','xf':3},{'jd':14.4,'kcbh':'JXY209','zcj':98,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'面向对象程序设计（C++）','xf':3},{'jd':7.5,'kcbh':'JXY204','zcj':75,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'模拟电子技术','xf':3},{'jd':8.4,'kcbh':'TXK115','zcj':92,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'人体构造与健康','xf':2},{'jd':9.8,'kcbh':'JXY214','zcj':99,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'算法与程序设计实践1','xf':2},{'jd':3.1,'kcbh':'PHE002','zcj':81,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'体育2','xf':1},{'jd':7.8,'kcbh':'LIT001','zcj':89,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'写作','xf':2},{'jd':7,'kcbh':'INT010','zcj':85,'xm':'刘明昊','xqmc':'2014年春季学期','kcmc':'中国近现代史纲要','xf':2},{'jd':10.32,'kcbh':'JXY417','zcj':93,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'TCP/IP协议原理','xf':2},{'jd':7,'kcbh':'FOR003','zcj':78,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'大学英语3','xf':2.5},{'jd':12,'kcbh':'JXY207','zcj':90,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'概率论与数理统计1','xf':3},{'jd':8.4,'kcbh':'JXY409','zcj':85,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'离散数学2','xf':2},{'jd':12,'kcbh':'INT011','zcj':90,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'马克思主义基本原理','xf':3},{'jd':10,'kcbh':'TXK186','zcj':100,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'美术鉴赏','xf':2},{'jd':8.8,'kcbh':'JXY218','zcj':94,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'面向对象程序设计(java)','xf':2},{'jd':16.8,'kcbh':'JXY205','zcj':92,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'数据结构','xf':4},{'jd':13.2,'kcbh':'JXY206','zcj':94,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'数字电路与数字逻辑','xf':3},{'jd':8.6,'kcbh':'JXY215','zcj':93,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'算法与程序设计实践2','xf':2},{'jd':3,'kcbh':'PHE003','zcj':80,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'体育3','xf':1},{'jd':8.4,'kcbh':'TXK052','zcj':92,'xm':'刘明昊','xqmc':'2014年秋季学期','kcmc':'西方哲学','xf':2},{'jd':10.8,'kcbh':'JXY241','zcj':86,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'Android应用开发技术','xf':3},{'jd':8,'kcbh':'JXY228','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'Windows程序设计','xf':2},{'jd':12.6,'kcbh':'JXY212','zcj':92,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'操作系统','xf':3},{'jd':10,'kcbh':'FOR004','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'大学英语4','xf':2.5},{'jd':9.6,'kcbh':'JXY210','zcj':82,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'计算机组成与结构','xf':3},{'jd':13.2,'kcbh':'INT015','zcj':83,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'毛泽东思想和中国特色社会主义理论体系概论','xf':4},{'jd':9.6,'kcbh':'JXY404','zcj':90,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'嵌入式系统引论','xf':2},{'jd':10.08,'kcbh':'JXY406','zcj':92,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'算法分析与设计','xf':2},{'jd':3.2,'kcbh':'PHE004','zcj':82,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'体育4','xf':1},{'jd':9.8,'kcbh':'TXK198','zcj':99,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'西方美术欣赏','xf':2},{'jd':9,'kcbh':'JXY242','zcj':95,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'项目实践','xf':2},{'jd':10.32,'kcbh':'TXK153','zcj':93,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'心理学与生活','xf':2},{'jd':8.6,'kcbh':'JXY216','zcj':93,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'专业英语','xf':2},{'jd':9.84,'kcbh':'JXY412','zcj':91,'xm':'刘明昊','xqmc':'2015年春季学期','kcmc':'组合数学','xf':2},{'jd':6.48,'kcbh':'JXY421','zcj':77,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'C＃.NET面向对象程序设计','xf':2},{'jd':17.64,'kcbh':'JXY401','zcj':99,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'编译原理','xf':3},{'jd':1.6,'kcbh':'FOR003-T','zcj':82,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'大学英语3听力','xf':0.5},{'jd':1.6,'kcbh':'FOR004-T','zcj':82,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'大学英语4听力','xf':0.5},{'jd':13.8,'kcbh':'JXY213','zcj':96,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'汇编语言程序设计','xf':3},{'jd':8.4,'kcbh':'JXY418','zcj':85,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'软件工程','xf':2},{'jd':13.8,'kcbh':'JXY211','zcj':96,'xm':'刘明昊','xqmc':'2015年秋季学期','kcmc':'数据库系统','xf':3},{'jd':6.2,'kcbh':'JXY219','zcj':81,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'Linux操作系统','xf':2},{'jd':14.04,'kcbh':'JXY402','zcj':89,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算机体系结构','xf':3},{'jd':8.64,'kcbh':'JXY405','zcj':86,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算机网络','xf':2},{'jd':11.28,'kcbh':'JXY407','zcj':97,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'计算理论','xf':2},{'jd':9,'kcbh':'JXY243','zcj':95,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'数据仓库与数据挖掘','xf':2},{'jd':9,'kcbh':'JXY246','zcj':95,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'数字图像处理','xf':2},{'jd':11.88,'kcbh':'JXY403','zcj':83,'xm':'刘明昊','xqmc':'2016年春季学期','kcmc':'微机原理与应用','xf':3},{'jd':22.5,'kcbh':'JXY249','zcj':95,'xm':'刘明昊','xqmc':'2016年秋季学期','kcmc':'专业实习','xf':5}]

@@ -1,0 +1,9 @@
+D:\My projects\scoreCalculator\scoreCalculator\bin\Release\scoreCalculator.exe.config
+D:\My projects\scoreCalculator\scoreCalculator\bin\Release\scoreCalculator.exe
+D:\My projects\scoreCalculator\scoreCalculator\bin\Release\scoreCalculator.pdb
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.Form1.resources
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.Form2.resources
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.Properties.Resources.resources
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.csproj.GenerateResource.Cache
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.exe
+D:\My projects\scoreCalculator\scoreCalculator\obj\Release\scoreCalculator.pdb

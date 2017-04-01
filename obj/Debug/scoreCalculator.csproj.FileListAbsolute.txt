@@ -1,0 +1,12 @@
+D:\My projects\scoreCalculator\scoreCalculator\bin\Debug\scoreCalculator.exe.config
+D:\My projects\scoreCalculator\scoreCalculator\bin\Debug\scoreCalculator.exe
+D:\My projects\scoreCalculator\scoreCalculator\bin\Debug\scoreCalculator.pdb
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.csprojResolveAssemblyReference.cache
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.Form1.resources
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.Properties.Resources.resources
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.csproj.GenerateResource.Cache
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.exe
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.pdb
+D:\My projects\scoreCalculator\scoreCalculator\obj\Debug\scoreCalculator.Form2.resources
+D:\My projects\scoreCalculator\scoreCalculator\bin\Debug\Newtonsoft.Json.dll
+D:\My projects\scoreCalculator\scoreCalculator\bin\Debug\Newtonsoft.Json.xml
