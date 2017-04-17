@@ -94,14 +94,12 @@
   
   单科绩点计算公式：
   
-  <img src="http://chart.googleapis.com/chart?cht=tx&chl= g_i = (\frac{s_i - 60}{10} + 1) * c_i * d_i" style="border:none;">
   $$ g_i = (\frac{s_i - 60}{10} + 1) * c_i * d_i $$
   
   其中$g_i$为及格课程的单科绩点，$s_i$为课程成绩，$c_i$为课程学分，$d_i$为课程难度系数。
   
   平均学分绩点计算公式：
   
-  <img src="http://chart.googleapis.com/chart?cht=tx&chl= \overline{gpa} = \frac{\sum{g_i}}{\sum{c_i}}" style="border:none;">
   $$ \overline{gpa} = \frac{\sum{g_i}}{\sum{c_i}} $$
   
   其中$\overline{gpa}$为平均学分绩点，$g_i$和$c_i$分别为所有及格课程的单科绩点和学分。
